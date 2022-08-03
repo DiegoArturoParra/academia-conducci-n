@@ -1,0 +1,21 @@
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Prueba tecnica</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="estudiantes" class="nav-link"
+          >Estudiantes</a
+        >
+      </li>
+      <li class="nav-item">
+        <a routerLink="estudiantes/agregar-clases" class="nav-link">Asignar clases a estudiante</a>
+      </li>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+    <app-list-student></app-list-student>
+
+  </div>
+</div>

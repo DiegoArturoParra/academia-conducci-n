@@ -1,0 +1,78 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Listado de estudiantes</h4>
+    <div *ngIf="!students">
+      <div class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let student of students; let i = index" [class.active]="i == currentIndex"
+        (click)="setActiveStudent(student, i)">
+        <h5>{{ student.Name }}</h5>
+      </li>
+    </ul>
+    <a class="m-3 btn btn-sm btn-dark" routerLink="/estudiantes/agregar">
+      Registrar estudiante
+    </a>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentStudent.StudentId">
+      <h4>Estudiante</h4>
+      <div>
+        <label><strong>Nombre:</strong>
+          {{ currentStudent.Name }}
+        </label>
+      </div>
+      <div>
+        <label><strong>No De Identificación:</strong>
+          {{ currentStudent.Identification }}
+        </label>
+      </div>
+      <div>
+        <label><strong>Edad:</strong>
+          {{ currentStudent.Age }}
+        </label>
+      </div>
+      <div *ngIf="currentStudent.Lessons.length>0">
+        <label><strong>Clases Asignadas: </strong>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let clase of currentStudent.Lessons">
+              <h3>Modulo: {{ clase.Module }}</h3>
+              <h5>Clase: {{ clase.Name }}</h5>
+            </li>
+          </ul>
+        </label>
+      </div>
+      <div *ngIf="currentStudent.Lessons.length==0">
+        <label class="p-3 mb-2 bg-info text-white"><strong>No tiene clases asignadas </strong>
+        </label>
+      </div>
+      <button type="button" class="btn btn-dark" (click)="addLesson(currentStudent.StudentId)">
+        Asignar Clases
+      </button>
+    </div>
+    <div *ngIf="!currentStudent.StudentId">
+      <div class="alert alert-info mt-5">
+        <div *ngIf="!students">
+          <strong>No hay estudiantes.</strong>
+        </div>
+        <div *ngIf="students">
+          <div *ngIf="students.length > 0">
+            <div class="text-center">
+              <strong>Haga clic en un estudiante para ver la
+                información.</strong>
+            </div>
+          </div>
+          <div *ngIf="students.length == 0">
+            <div class="text-center">
+              <strong>No hay estudiantes.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
