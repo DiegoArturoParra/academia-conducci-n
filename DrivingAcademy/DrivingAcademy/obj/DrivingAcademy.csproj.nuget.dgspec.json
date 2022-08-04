@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LaurayDiego\\source\\repos\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj": {}
+    "D:\\UDEC\\academia-conduccion\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LaurayDiego\\source\\repos\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj": {
+    "D:\\UDEC\\academia-conduccion\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LaurayDiego\\source\\repos\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj",
+        "projectUniqueName": "D:\\UDEC\\academia-conduccion\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj",
         "projectName": "DrivingAcademy",
-        "projectPath": "C:\\Users\\LaurayDiego\\source\\repos\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj",
+        "projectPath": "D:\\UDEC\\academia-conduccion\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj",
         "packagesPath": "C:\\Users\\LaurayDiego\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LaurayDiego\\source\\repos\\DrivingAcademy\\DrivingAcademy\\obj\\",
+        "outputPath": "D:\\UDEC\\academia-conduccion\\DrivingAcademy\\DrivingAcademy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

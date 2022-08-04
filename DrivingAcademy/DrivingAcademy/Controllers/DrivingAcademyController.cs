@@ -67,7 +67,7 @@ namespace DrivingAcademy.Controllers
         {
             var student = _mapper.Map<Student>(createStudent);
             var response = await _drivingAcademyRepository.CreateStudent(student);
-            return StatusCode((int)response.StatusCode, response.Message);
+            return StatusCode((int)response.StatusCode, response);
         }
 
         [HttpPost]
@@ -76,7 +76,7 @@ namespace DrivingAcademy.Controllers
         {
             var detail = _mapper.Map<InfoDrivingAcademy>(createDetail);
             var response = await _drivingAcademyRepository.CreateDetail(detail);
-            return StatusCode((int)response.StatusCode, response.Message);
+            return StatusCode((int)response.StatusCode, response);
         }
     }
 }

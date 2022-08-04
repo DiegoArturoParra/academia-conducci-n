@@ -1,1 +1,64 @@
-<p>form-student works!</p>
+<div>
+  <div class="submit-form">
+    <form id="formulario" [formGroup]="valForm" class="needs-validation text-sm mt-4" novalidate>
+      <label for="nombre" class="font-weight-bold">Nombre</label>
+      <small class="text-danger" title="requerido"> (*)</small>
+      <div class="form-group">
+        <textarea class="form-control form-control-sm" formControlName="Name" placeholder="ingrese el nombre"
+          maxlength="2000"></textarea>
+      </div>
+      <div class="text-danger" *ngIf="(Nombre?.dirty || Nombre?.touched) && !Nombre?.valid">
+        <span *ngIf="Nombre?.hasError('required')">
+          El campo es requerido.
+        </span>
+      </div>
+      <label class="form-check-label text-muted">
+        Maximo 2000 caracteres.
+      </label>
+      <div class="form-group">
+        <label>Identificación</label>
+        <small class="text-danger" title="requerido"> (*)</small>
+        <input type="text" minlength="8" maxlength="18" onkeypress="return event.charCode > 47 && event.charCode < 58;"
+          class="form-control" formControlName="Identification" />
+      </div>
+      <div class="text-danger" *ngIf="(Identificacion?.dirty || Identificacion?.touched) && !Identificacion?.valid">
+        <span *ngIf="Identificacion?.hasError('required')">
+          El campo es requerido.
+        </span>
+      </div>
+      <span class="text-danger"
+      *ngIf="Identificacion?.hasError('minlength')
+      && ( Identificacion?.dirty ||  Identificacion?.touched)">El campo es de minimo 8 numeros</span>
+      <div class="form-group">
+        <label>Edad</label>
+        <small class="text-danger" title="requerido"> (*)</small>
+        <input type="number" min="18" max="70" class="form-control" formControlName="Age" />
+      </div>
+      <div class="text-danger" *ngIf="(Edad?.dirty || Edad?.touched) && !Edad?.valid">
+        <span *ngIf="Edad?.hasError('required')">
+          El campo es requerido.
+        </span>
+      </div>
+      <span class="text-danger"
+      *ngIf="Edad?.hasError('min')
+      && ( Edad?.dirty ||  Edad?.touched)">El campo es de minimo 18 años</span>
+      <span class="text-danger"
+      *ngIf="Edad?.hasError('max')
+      && ( Edad?.dirty ||  Edad?.touched)">El campo es de maximo 70 años</span>
+      <div class="form-group">
+        <label>Ingrese el tipo de licencia</label>
+        <small class="text-danger" title="requerido"> (*)</small>
+        <select class="form-control" formControlName="typeLicenceId">
+          <option *ngFor="let objeto of listaLicencias" [ngValue]="objeto.Id">
+            {{ objeto.TypeName }}
+          </option>
+        </select>
+      </div>
+      <div class="text-sm-left mb-2">
+        <button class="btn btn-link" type="submit" (click)="devolver()">Cancelar</button>
+      </div>
+      <div class="text-sm-right mb-2">
+        <button class="btn btn-primary" type="submit" (click)="addStudent()" [disabled]="valForm.invalid">Guardar</button>
+      </div>
+    </form>
+  </div>

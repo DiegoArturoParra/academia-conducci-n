@@ -32,7 +32,6 @@ export class ListStudentComponent implements OnInit {
   loadStudents(): void {
     this._academyService.getStudents().subscribe(
       (data) => {
-        console.log(data);
         this.students = data;
       },
       (error) => {
@@ -40,16 +39,10 @@ export class ListStudentComponent implements OnInit {
       }
     );
   }
-  refreshList(): void {
-    this.loadStudents();
-    this.currentIndex = -1;
-  }
-
   setActiveStudent(student: any, index: number): void {
     this._academyService.getStudentWithDetail(student.StudentId).subscribe(
       (data) => {
         this.currentStudent = data;
-        console.log(this.currentStudent);
         this.currentIndex = index;
       },
       (error) => {

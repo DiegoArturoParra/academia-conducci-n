@@ -177,8 +177,11 @@ namespace DrivingAcademy.repositories
                     }
                     else
                     {
+
+
                         var oneActive = await _context.TableDetails.Include(x => x.Lesson).
-                            Where(x => x.LessonId == item && x.Lesson.ModuleId == exist.ModuleId)
+                            Where(x => x.StudentId == info.StudentId &&
+                            x.Lesson.ModuleId == exist.ModuleId)
                             .CountAsync();
                         if (oneActive >= 1)
                         {
@@ -193,8 +196,23 @@ namespace DrivingAcademy.repositories
             }
             if (validate)
             {
+                var repetido = await _context.TableLessons.Where(x => info.lessonIds.Contains(x.Id)).GroupBy(x => new { x.ModuleId })
+                    .Select(x => new
+                    {
+                        count = x.Count(),
+                    }).ToListAsync();
 
-                response.StatusCode = HttpStatusCode.OK;
+                if (repetido.Any(x => x.count >= 1))
+                {
+                    response.Message = "No puede tener mas de una clase del mismo modulo";
+                    response.StatusCode = HttpStatusCode.Conflict;
+                    validate = false;
+                }
+                else
+                {
+                    validate = true;
+                    response.StatusCode = HttpStatusCode.OK;
+                }
             }
             return (response, validate);
         }

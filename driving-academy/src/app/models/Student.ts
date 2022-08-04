@@ -17,3 +17,10 @@ export interface DetailStudent {
   Age: number;
   Lessons: Lesson[];
 }
+
+export interface CreateStudent {
+  Name: string;
+  Age: number;
+  Identification: string;
+  typeLicenceId: number;
+}
