@@ -202,7 +202,7 @@ namespace DrivingAcademy.repositories
                         count = x.Count(),
                     }).ToListAsync();
 
-                if (repetido.Any(x => x.count >= 1))
+                if (repetido.Any(x => x.count > 1))
                 {
                     response.Message = "No puede tener mas de una clase del mismo modulo";
                     response.StatusCode = HttpStatusCode.Conflict;
